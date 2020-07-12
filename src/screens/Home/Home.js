@@ -57,24 +57,21 @@ const Home = ({ navigation }) => {
             <Header
                 text="الرئيسية"
                 rightIcon={require('../../../assets/images/menu.png')}
-                notificationNumbers="10"
-                notificationIcon={true}
-                onRightIcon={() => navigation.openDrawer()}
+                handleRightIcon={() => { navigation.openDrawer() }}
+                leftIcon={require('../../../assets/images/menu.png')}
+                handleLeftIcon={navigation.openDrawer()}
+                hideLeftIcon={true}
             />
             <MapView
                 style={styles.MapView}
                 region={{
                     ...coordinate.coords,
-                    latitudeDelta: 0.007,
-                    longitudeDelta: 0.007
-                }}
-                initialRegion={{
-                    ...coordinate.coords,
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01
-                  }}            />
+                    longitudeDelta: 0.03,
+                    latitudeDelta: 0.03
+                }
+                }
+            />
             <ActivityState onPress={toggleModal} text={activeText} bkColor={activeBkColor} textColor={activeBkColor} />
-            {/* <Button title="press" onPress={toggleModal} /> */}
             <Modal style={{ width: "100%", alignSelf: "center", height: "100%", marginBottom: 0 }} isVisible={isModalVisible}>
                 <View style={{ position: 'absolute', bottom: 0, width: "100%", height: "30%", backgroundColor: "#fff", borderTopRightRadius: 20, borderTopLeftRadius: 20 }}>
                     <Text style={{ textAlign: "center", fontFamily: "Cocon", padding: "5%", fontSize: 23, color: "#D5436A" }}>تغيير الحالة</Text>
@@ -95,14 +92,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     MapView: {
-        height: "100%",
-        width: "100%",
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        right: 0,
-        left: 0,
-        zIndex: -10
+        height:"100%"
     }
 })
 export default Home;
