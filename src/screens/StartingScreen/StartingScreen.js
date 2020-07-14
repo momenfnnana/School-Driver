@@ -11,7 +11,7 @@ import {
 
 const { width, height } = Dimensions.get("window");
 
-const StartingScreen = ({ Title, detailsText1, detailsText2 }) => {
+const StartingScreen = ({ Title, detailsText1, detailsText2, navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
@@ -35,14 +35,16 @@ const StartingScreen = ({ Title, detailsText1, detailsText2 }) => {
 
       {/* Text details */}
       <View style={styles.textContainer}>
-        <Text style={styles.textDetails}>{detailsText1}</Text>
+        <Text style={styles.textDetails}>
+          هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
+          </Text>
         <Text style={[styles.textDetails, { marginTop: 10 }]}>
-          {detailsText2}
+          هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
         </Text>
       </View>
 
       {/* Confirm button */}
-      <TouchableOpacity style={styles.confirmBtn}>
+      <TouchableOpacity onPress={() => navigation.navigate("SigninScreen")} style={styles.confirmBtn}>
         <Text style={styles.textConfirmBtn}>تأكيد</Text>
       </TouchableOpacity>
 
@@ -90,13 +92,13 @@ const styles = StyleSheet.create({
   textContainer: {
     marginTop: 30,
     // width: "85%",
-    paddingHorizontal:20
+    paddingHorizontal: 20
   },
   textDetails: {
     color: "#fff",
     fontFamily: "Cocon",
     fontSize: 15,
-    lineHeight:22
+    lineHeight: 22
   },
   confirmBtn: {
     borderRadius: 50,
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     fontFamily: "Cocon",
     color: "#fff",
     marginBottom: 10,
-    fontSize:10
+    fontSize: 10
   },
 });
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Header from '../../components/header/Header';
 import { TextInput } from "react-native-paper";
-
 const { width, height } = Dimensions.get("window");
 
 const ForgetPassword = ({ navigation }) => {
@@ -13,12 +12,11 @@ const ForgetPassword = ({ navigation }) => {
             <Header
                 text="تعديل كلمة المرور"
                 rightIcon={require("../../../assets/images/arrow-right.png")}
-                handleRightIcon={() => { navigation.openDrawer() }}
+                handleRightIcon={() => navigation.goBack()}
                 leftIcon={require('../../../assets/images/menu.png')}
-                handleLeftIcon={navigation.openDrawer()}
                 hideLeftIcon={true}
             />
-            <View style={{ flex: 1, width: "90%", alignSelf: "center", paddingVertical: 20, marginTop: 0 }}>
+            <View style={{ flex: 1, width: "90%", alignSelf: "center", paddingVertical: 20, marginTop: "20%" }}>
                 <TextInput
                     value={name}
                     onChangeText={(val) => setName(val)}
@@ -52,7 +50,7 @@ const ForgetPassword = ({ navigation }) => {
                     numberOfLines={3}
                     secureTextEntry
                 />
-                 <TextInput
+                <TextInput
                     value={password}
                     onChangeText={(val) => setPassword(val)}
                     style={styles.input}

@@ -5,16 +5,19 @@ import Header from "../../components/header/Header";
 import Spacer from "../../components/Spacer/Spacer";
 import NotificationCard from "../../components/NotificationCard/notificationCard";
 
-const NotificationScreen = () => {
+const NotificationScreen = ({ navigation }) => {
   return (
-    <View style={{flex:1}}>
+    <View style={{ flex: 1 }}>
       <StatusBar style="light" />
       <Header
         text="الإشعارات"
         rightIcon={require("../../../assets/images/arrow-right.png")}
+        handleRightIcon={() => navigation.pop()}
         notificationIcon={false}
         onNotification={() => console.log("on press notification!")}
         onRightIcon={() => console.log("on press RightIcon!")}
+        leftIcon={require("../../../assets/images/arrow-right.png")}
+        hideLeftIcon={true}
         notificationNumbers={1}
       />
       <ScrollView style={styles.container}>
@@ -36,21 +39,22 @@ const NotificationScreen = () => {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
-    zIndex:-1,
+    zIndex: -1,
+    marginTop:"20%"
   },
   readText: {
     fontFamily: "Cocon",
     fontSize: 20,
     color: "#4A4A4A",
     marginBottom: 20,
-    marginTop:50
+    marginTop: 50
   },
-  recentText:{
+  recentText: {
     fontFamily: "Cocon",
     fontSize: 20,
     color: "#4A4A4A",
     marginBottom: 20,
-    marginTop:5
+    marginTop: 5
   }
 });
 

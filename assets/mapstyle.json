@@ -1,0 +1,44 @@
+[{
+        "stylers": [{
+                "hue": "#0074d9"
+            },
+            {
+                "saturation": 89
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [{
+            "color": "#ffffff"
+        }]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "labels",
+        "stylers": [{
+            "visibility": "off"
+        }]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [{
+            "color": "#c9c9c9"
+        }]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [{
+            "color": "#9bd5f0"
+        }]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [{
+            "color": "#9e9e9e"
+        }]
+    }
+]

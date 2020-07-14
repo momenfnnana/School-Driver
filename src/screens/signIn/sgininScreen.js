@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,10 +10,14 @@ import {
   ImageBackground,
 } from "react-native";
 import SigninForm from "../../components/SignInForm/signinForm";
+import { Context as AuthContext } from '../../Context/AuthContext';
 
 const { width, height } = Dimensions.get("window");
 
 const SigninScreen = ({ Title }) => {
+
+  const { signin , state } = useContext(AuthContext);
+  console.log('===============ddd=d=d=d=d==d', state)
   return (
     <View style={styles.fullContainer}>
       <StatusBar style="light" />
@@ -40,7 +44,7 @@ const SigninScreen = ({ Title }) => {
         <SigninForm title="حساب السائق" />
       </ImageBackground>
       <View style={styles.signinBtnContainer}>
-        <TouchableOpacity style={styles.signinBtn}>
+        <TouchableOpacity onPress={signin} style={styles.signinBtn}>
           <Text style={styles.signinText}>تسجيل الدخول</Text>
         </TouchableOpacity>
       </View>
@@ -82,10 +86,10 @@ const styles = StyleSheet.create({
   signinBtnContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    flex: 1
+    height:"30%"
   },
   signinBtn: {
-    marginBottom: height / 8,
+    marginBottom: "20%",
     backgroundColor: '#D5436A',
     borderRadius: 10,
     alignItems: 'center',

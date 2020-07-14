@@ -19,9 +19,6 @@ const SigninForm = ({ title }) => {
             colors: { primary: "#D5436A", underlineColor: "#DED7EE" },
             fonts: { regular: { fontFamily: "Cocon" } },
           }}
-          editable={true}
-          multiline={true}
-          numberOfLines={3}
         />
 
         <TextInput
@@ -35,12 +32,7 @@ const SigninForm = ({ title }) => {
             colors: { primary: "#D5436A", underlineColor: "#DED7EE" },
             fonts: { regular: { fontFamily: "Cocon" } },
           }}
-          editable={true}
-          multiline={true}
-          numberOfLines={3}
           secureTextEntry={true}
-          textContentType="password"
-          keyboardType="visible-password"
         />
       </View>
     </View>
