@@ -8,43 +8,52 @@ import {
   Dimensions,
   TouchableOpacity,
   ImageBackground,
+  KeyboardAvoidingView,
 } from "react-native";
 import SigninForm from "../../components/SignInForm/signinForm";
-import { Context as AuthContext } from '../../Context/AuthContext';
-
+import { Context as AuthContext } from '../../Context/AuthContext'
 const { width, height } = Dimensions.get("window");
 
-const SigninScreen = ({ Title }) => {
-
-  const { signin , state } = useContext(AuthContext);
-  console.log('===============ddd=d=d=d=d==d', state)
+const SigninScreen = ({ Title = "تسجيل الدخول", navigation }) => {
+  const { signin } = useContext(AuthContext)
   return (
-    <View style={styles.fullContainer}>
+    <View style={{ flex: 1 }}>
       <StatusBar style="light" />
-      <ImageBackground
-        source={require("../../../assets/images/Oval.png")}
-        style={styles.container}
+      <KeyboardAvoidingView
+        style={{ width: "100%" }}
+        behavior="position"
+        keyboardVerticalOffset={10}
       >
-        {/* Heading Text */}
-        <View style={styles.containHedingLine}>
-          <Text style={styles.HeadingLine}>{Title}</Text>
-        </View>
+        <ImageBackground
+          source={require("../../../assets/images/Oval.png")}
+          style={styles.container}
+        >
+          {/* Heading Text */}
+          <View style={styles.containHedingLine}>
+            <Text style={styles.HeadingLine}>{Title}</Text>
+          </View>
 
-        {/* Images */}
-        <View style={styles.imageContainer}>
-          <Image
-            source={require("../../../assets/images/Bitmap.png")}
-            style={styles.imageBackground}
-          />
-          <Image
-            style={styles.busImage}
-            source={require("../../../assets/images/BitmapSignin.png")}
-          />
+          {/* Images */}
+          <View style={styles.imageContainer}>
+            <Image
+              source={require("../../../assets/images/Bitmap.png")}
+              style={styles.imageBackground}
+            />
+            <Image
+              style={styles.busImage}
+              source={require("../../../assets/images/BitmapSignin.png")}
+            />
+          </View>
+        </ImageBackground>
+        <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center', marginTop: -100 }}>
+          <SigninForm title="حساب أولياء الإمور" />
         </View>
-        <SigninForm title="حساب السائق" />
-      </ImageBackground>
+      </KeyboardAvoidingView>
       <View style={styles.signinBtnContainer}>
-        <TouchableOpacity onPress={signin} style={styles.signinBtn}>
+        <TouchableOpacity
+          style={styles.signinBtn}
+          onPress={signin}
+        >
           <Text style={styles.signinText}>تسجيل الدخول</Text>
         </TouchableOpacity>
       </View>
@@ -53,19 +62,20 @@ const SigninScreen = ({ Title }) => {
 };
 
 const styles = StyleSheet.create({
-  fullContainer: {
-    flex: 1,
-  },
   container: {
+    position: 'relative',
     alignItems: "center",
-    justifyContent: "flex-end",
+    // justifyContent: "flex-end",
     height: height,
     resizeMode: "cover",
     marginTop: -height / 2.5,
+    // marginBottom:50
   },
   containHedingLine: {
-    marginTop: height / 8,
-    marginBottom: 20,
+    position: "absolute",
+    bottom: 260,
+    // marginTop: height / 8,
+    // marginBottom: 20,
   },
   HeadingLine: {
     color: "#fff",
@@ -73,10 +83,11 @@ const styles = StyleSheet.create({
     fontFamily: "Cocon",
   },
   imageContainer: {
-    position: "relative",
-    width: "100%",
+    position: "absolute",
+    // width: "100%",
     alignItems: "center",
     justifyContent: "center",
+    bottom: 160
   },
   imageBackground: {
     position: "absolute",
@@ -84,24 +95,29 @@ const styles = StyleSheet.create({
   },
   busImage: {},
   signinBtnContainer: {
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    height:"30%"
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    left: 0,
+    zIndex: -1,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    flex: 1,
   },
   signinBtn: {
-    marginBottom: "20%",
-    backgroundColor: '#D5436A',
+    marginBottom: height / 8,
+    backgroundColor: "#D5436A",
     borderRadius: 10,
-    alignItems: 'center',
-    width: '90%',
+    alignItems: "center",
+    width: "90%",
     // alignSelf:'center'
   },
   signinText: {
-    fontFamily: 'Cocon',
+    fontFamily: "Cocon",
     marginVertical: 15,
-    color: '#fff',
-    fontSize: 20
-  }
+    color: "#fff",
+    fontSize: 20,
+  },
 });
 
 export default SigninScreen;

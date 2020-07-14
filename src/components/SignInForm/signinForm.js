@@ -1,9 +1,16 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import React, { useState, useEffect, useCallback } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 import { TextInput } from "react-native-paper";
 const SigninForm = ({ title }) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
   return (
     <View style={styles.formContainer}>
       <Text style={styles.titleForm}>{title}</Text>
@@ -12,9 +19,8 @@ const SigninForm = ({ title }) => {
           value={name}
           onChangeText={(val) => setName(val)}
           style={styles.input}
-          mode={"outlined"}
-          label="اسم السائق"
-          placeholder="اسم السائق"
+          mode="outlined"
+          label="ولي الأمر"
           theme={{
             colors: { primary: "#D5436A", underlineColor: "#DED7EE" },
             fonts: { regular: { fontFamily: "Cocon" } },
@@ -23,11 +29,12 @@ const SigninForm = ({ title }) => {
 
         <TextInput
           value={password}
+          textContentType="password"
+          type="password"
           onChangeText={(val) => setPassword(val)}
           style={styles.input}
-          mode={"outlined"}
+          mode="outlined"
           label="كلمة المرور"
-          placeholder="كلمة المرور"
           theme={{
             colors: { primary: "#D5436A", underlineColor: "#DED7EE" },
             fonts: { regular: { fontFamily: "Cocon" } },
@@ -41,13 +48,15 @@ const SigninForm = ({ title }) => {
 
 const styles = StyleSheet.create({
   formContainer: {
-    marginTop: 15,
+    // marginTop: 15,
+    // height:100,
+    zIndex:1000,
     backgroundColor: "#fff",
     borderRadius: 20,
     alignItems: "center",
     width: "90%",
     textAlign: "center",
-    marginBottom: -50,
+    marginTop: -50,
     paddingHorizontal: 15,
     shadowColor: "#000",
     shadowOffset: {
@@ -72,6 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderColor: "#DED7EE",
     marginTop: 10,
+    // marginBottom:50
   },
   // keyboardView:{
   //   display:'flex',

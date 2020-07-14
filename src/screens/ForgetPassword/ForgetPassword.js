@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     signinBtn: {
-        marginBottom: height / 8,
+        marginBottom: height / 30,
         backgroundColor: '#D5436A',
         borderRadius: 10,
         alignItems: 'center',
