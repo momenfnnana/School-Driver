@@ -8,7 +8,8 @@ import ForgetPassword from '../screens/ForgetPassword/ForgetPassword';
 import NotificationScreen from '../screens/Notifications/notificationScreen';
 import SigninScreen from '../screens/signIn/sgininScreen';
 import StartingScreen from '../screens/StartingScreen/StartingScreen';
-import {DrawerContent} from './DrawerContent';
+import SplashScreen from '../screens/splashScreen/splashScreen'
+import { DrawerContent } from './DrawerContent';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -41,6 +42,7 @@ const Navigator = () => {
                     </Drawer.Navigator>
                 ) : (
                         <Stack.Navigator headerMode={false}>
+                            <Stack.Screen name="splash" component={SplashScreen} />
                             <Stack.Screen name="StartingScreen" component={StartingScreen} />
                             <Stack.Screen name="SigninScreen" component={SigninScreen} />
                         </Stack.Navigator>
