@@ -20,7 +20,7 @@ const SigninForm = ({ title }) => {
           onChangeText={(val) => setName(val)}
           style={styles.input}
           mode="outlined"
-          label="ولي الأمر"
+          label="اسم السائق"
           theme={{
             colors: { primary: "#D5436A", underlineColor: "#DED7EE" },
             fonts: { regular: { fontFamily: "Cocon" } },
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   formContainer: {
     // marginTop: 15,
     // height:100,
-    zIndex:1000,
+    zIndex: 1000,
     backgroundColor: "#fff",
     borderRadius: 20,
     alignItems: "center",

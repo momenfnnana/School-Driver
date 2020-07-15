@@ -18,7 +18,12 @@
       "favicon": "./assets/favicon.png"
     },
     "android": {
-      "package": "com.momenfnnana.schoolDriver"
+      "package": "com.momenfnnana.schoolDriver",
+      "config":{
+        "googleMaps":{
+          "apiKey": "AIzaSyA8amKfKRV3j3rAEBS_JMSNyFAKgzdY66c"
+        }
+      }
     }
   }
 }

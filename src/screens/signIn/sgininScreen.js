@@ -46,7 +46,7 @@ const SigninScreen = ({ Title = "تسجيل الدخول", navigation }) => {
           </View>
         </ImageBackground>
         <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center', marginTop: -100 }}>
-          <SigninForm title="حساب أولياء الإمور" />
+          <SigninForm title="حساب السائق" />
         </View>
       </KeyboardAvoidingView>
       <View style={styles.signinBtnContainer}>
